@@ -21,10 +21,11 @@
 - 关键词匹配作为fallback确保稳定性
 
 📖 详细架构说明: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)  
+📝 技术细节请参考: [中文技术博客](docs/BLOG_POST_CN.md)
 
 ### 其他特性
 
-- **🎨 Modern Web UI**: React + TypeScript + Vite 前端界面（Dark主题 + SSE流式响应）
+- **🎨 Modern Web UI**: React + TypeScript + Vite 前端界面
 - **🤖 Agent Skills 集成**: 基于 [agentskills.io](https://agentskills.io) 标准的技能发现和动态注入
 - **🔌 MCP 客户端**: 连接 Microsoft Learn MCP Server，访问官方文档
 - **💬 多轮对话**: 支持线程管理和对话上下文维护
@@ -40,18 +41,19 @@ AzureDoc_Skills_MCP/
 ├── src/                          # 源代码目录
 │   ├── azure_doc_agent.py       # 主 Agent 类（渐进式披露逻辑）
 │   ├── api_server.py            # FastAPI 后端服务器
-│   ├── registry.py              # 技能注册表（智能匹配 min_score=50）
+│   ├── registry.py              # 技能注册表
 │   ├── injector.py              # 技能注入器（按需加载完整SKILL.md）
+│   ├── llm_matcher.py           # LLM 智能技能匹配（91.3% 准确率）
 │   ├── mcp_client.py            # MCP 客户端（多MCP Server支持）
 │   └── system_prompts.py        # 系统提示管理
 ├── frontend/                     # React 前端
 │   ├── src/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── styles/
-│   │   ├── types/
-│   │   ├── App.tsx
-│   │   └── main.tsx
+│   │   ├── components/          # React 组件
+│   │   ├── services/            # API 服务
+│   │   ├── styles/              # 样式文件
+│   │   ├── types/               # TypeScript 类型定义
+│   │   ├── App.tsx              # 主应用组件
+│   │   └── main.tsx             # 入口文件
 │   ├── package.json
 │   └── vite.config.ts
 ├── skills/                       # 技能定义目录
@@ -59,16 +61,30 @@ AzureDoc_Skills_MCP/
 │   │   └── SKILL.md            # 指导使用 microsoft_docs_search/fetch
 │   └── microsoft-code-reference/ # 代码参考技能
 │       └── SKILL.md            # 指导使用 microsoft_code_sample_search
-├── docs/                         # 文档目录 (新)
+├── docs/                         # 文档目录
 │   ├── ARCHITECTURE.md          # 完整架构说明
-│   └── QUICK_REFERENCE.md       # 快速参考
-├── logs/                         # 日志文件目录
+│   ├── BLOG_POST.md             # 英文技术博客
+│   ├── BLOG_POST_CN.md          # 中文技术博客
+│   ├── DIAGRAMS.md              # Mermaid 架构图表
+│   ├── TROUBLESHOOTING.md       # 故障排查指南
+│   ├── PROJECT_CLEANUP_SUMMARY.md # 项目清理总结
+│   └── images/                  # 文档图片
+│       ├── 问题1.jpg
+│       └── 问题2.jpg
 ├── main.py                       # CLI 程序入口
-├── start.sh                      # 启动脚本
-├── test_correct_logic.py         # 渐进式披露逻辑测试
-├── test_skill_guidance.py        # SKILL指导测试
+├── start.sh                      # 总启动脚本（前端+后端）
+├── start_backend.sh              # 后端启动脚本
+├── start_frontend.sh             # 前端启动脚本
+├── setup.sh                      # 安装脚本
+├── setup-frontend.sh             # 前端安装脚本
 ├── requirements.txt              # Python 依赖
 ├── .env.example                  # 环境变量示例
+├── Dockerfile                    # Docker 镜像配置
+├── docker-compose.yml            # Docker Compose 配置
+├── INDEX.md                      # 文档导航索引
+├── QUICKSTART.md                 # 快速开始指南
+├── PROJECT_STRUCTURE.md          # 项目结构详解
+├── DEPLOYMENT.md                 # 部署指南
 └── README.md                     # 项目文档
 ```
 
@@ -274,14 +290,6 @@ LLM 决定使用的工具
 调用 MCP 或激活更多技能
     ↓
 返回结果给用户
-```
-
-## 🔍 日志
-
-所有日志输出到 `logs/agent.log`：
-
-```bash
-tail -f logs/agent.log
 ```
 
 ## 🛠️ 开发
