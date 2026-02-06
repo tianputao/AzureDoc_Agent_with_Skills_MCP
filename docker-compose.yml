@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  azure-doc-agent:
+    build: .
+    container_name: azure-doc-agent
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"  # Backend API
+      - "3000:3000"  # Frontend UI
+    volumes:
+      - ./logs:/app/logs
+      - ./skills:/app/skills
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    
+  # 可选: Redis 缓存（用于性能优化）
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: azure-doc-agent-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+
+# volumes:
+#   redis-data:
