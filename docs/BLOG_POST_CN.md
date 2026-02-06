@@ -2,7 +2,9 @@
 
 ## 引言
 
-由Anthropics开放的Claude agent skills无疑是当下最火的Agentic技术。各大AI开发助理厂商也都跟进，你可以利用Claude code agent SDK或者其他厂商的SDK来实现这个功能，或者在AI开发助理软件中直接使用。但它本是一个开放标准，你可以利用这个思想，参考这个文档自主开发实现这个能力。另外也通过本篇文章的实际例子来阐述Agent Skills和MCP的区别，和如何配合使用。
+由Anthropics开放的Claude agent skills无疑是当下最火的Agentic技术。各大AI开发助理厂商也都跟进，你可以利用Claude code agent SDK或者其他厂商的SDK来实现这个功能，或者在AI开发助理软件中直接使用。但它本是一个开放标准，本文利用这个思想，参考Skills的文档自主开发实现这个能力。另外也通过本篇文章的实际例子来阐述Agent Skills和MCP的区别，和如何配合使用。
+
+一句话总结就是此Agent用实际的示例证明Agent Skills可以动态的，可重复的给LLM作为操作指导。它像说明书一下给大模型项目背景，使用注意事项，规范，方式等特定的场景context。此Agent实现用skills的方式教会大模型在遇到文档查询问题时可以使用Microsoft Learn MCP来直接查询获取答案，甚至免去了做RAG的复杂工作。
 
 Agent Skills文档：
 https://agentskills.io
