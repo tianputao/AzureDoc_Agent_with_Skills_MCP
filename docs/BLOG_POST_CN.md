@@ -7,6 +7,9 @@
 Agent Skills文档：
 https://agentskills.io
 
+代码库：
+https://github.com/tianputao/AzureDoc_Agent_with_Skills_MCP
+
 此Agent主要结合了三项技术来实现智能Azure文档助手，无需最复杂的RAG：
 
 - **Microsoft Agent Framework (MAF)** - 企业级 Agent 编排框架

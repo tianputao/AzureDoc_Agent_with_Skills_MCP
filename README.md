@@ -315,9 +315,11 @@ mypy src/
 
 - [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/)
 - [Agent Skills Standard](https://agentskills.io)
-- [Microsoft Learn MCP Server](https://learn.microsoft.com/api/mcp)
+- [Microsoft Learn MCP Server](https://github.com/MicrosoftDocs/mcp/tree/main)
 - [Model Context Protocol](https://modelcontextprotocol.io)
-
+- [Skills](https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-docs/SKILL.md)
+          (https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-code-reference/SKILL.md)
+          
 ## 📞 支持
 
 如有问题，请提交 Issue 或联系维护者。
