@@ -72,6 +72,12 @@ AzureDoc_Skills_MCP/
 └── README.md                     # 项目文档
 ```
 
+## 实机演示
+
+![实际问题1](./docs/images/问题1.jpg)
+
+![实际问题2](./docs/images/问题2.jpg)
+
 ## 🏗️ 架构亮点
 
 ### 渐进式披露的三个层面
@@ -317,9 +323,9 @@ mypy src/
 - [Agent Skills Standard](https://agentskills.io)
 - [Microsoft Learn MCP Server](https://github.com/MicrosoftDocs/mcp/tree/main)
 - [Model Context Protocol](https://modelcontextprotocol.io)
-- [Skills](https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-docs/SKILL.md)
-          (https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-code-reference/SKILL.md)
-          
+- [microsoft-docs-Skills](https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-docs/SKILL.md)
+- [microsoft-code-reference-Skills](https://github.com/MicrosoftDocs/mcp/blob/main/skills/microsoft-code-reference/SKILL.md)
+
 ## 📞 支持
 
 如有问题，请提交 Issue 或联系维护者。
